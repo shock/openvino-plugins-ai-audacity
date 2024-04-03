@@ -9,8 +9,8 @@ on:
 
 env:
   AUDACITY_REPO: audacity/audacity
-  AUDACITY_BRANCH: main
-  AUDACITY_VERSION: audacity-main
+  AUDACITY_BRANCH: master
+  AUDACITY_VERSION: audacity-master
 
   SOURCE_PATH: ${{ github.workspace }}/code
 
