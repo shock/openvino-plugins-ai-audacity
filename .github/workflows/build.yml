@@ -12,6 +12,10 @@ env:
   AUDACITY_BRANCH: master
   AUDACITY_VERSION: audacity-master
 
+  WHISPER_REPO: ggerganov/whisper.cpp
+  WHISPER_BRANCH: v1.5.4
+  WHISPER_VERSION: whisper-1.5.4
+
   PACKAGE_PATH: ${{ github.workspace }}/package
   SOURCE_PATH: ${{ github.workspace }}/code
 
@@ -31,6 +35,13 @@ jobs:
           repository: ${{ env.AUDACITY_REPO }}
           ref: ${{ env.AUDACITY_BRANCH }}
           path: ${{ env.SOURCE_PATH }}/${{ env.AUDACITY_VERSION }}
+
+      - name: Checkout whisper
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.WHISPER_REPO }}
+          ref: ${{ env.WHISPER_BRANCH }}
+          path: ${{ env.SOURCE_PATH }}/${{ env.WHISPER_VERSION }}
 
       - name: Build audacity
         run: |

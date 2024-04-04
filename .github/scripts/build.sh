@@ -14,11 +14,19 @@ source m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/setupvars.
 
 wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-arm64-2.2.2.zip
 unzip libtorch-macos-arm64-2.2.2.zip
-ls
 export LIBTORCH_ROOTDIR=$PACKAGE_PATH/libtorch
 
-mkdir -p $BUILD_PATH
-cd $BUILD_PATH
+mkdir -p $BUILD_PATH/whisper
+cd $BUILD_PATH/whisper
+cmake $SOURCE_PATH/$WHISPER_VERSION -DWHISPER_OPENVINO=ON
+make -j`sysctl -n hw.ncpu`
+
+cmake --install . --config Release --prefix $PACKAGE_PATH/whisper
+export WHISPERCPP_ROOTDIR=$PACKAGE_PATH/whisper
+export LD_LIBRARY_PATH=${WHISPERCPP_ROOTDIR}/lib:$LD_LIBRARY_PATH
+
+mkdir -p $BUILD_PATH/audacity
+cd $BUILD_PATH/audacity
 
 cmake -G "Unix Makefiles" $SOURCE_PATH/$AUDACITY_VERSION -DCMAKE_BUILD_TYPE=Release
 make -j`sysctl -n hw.ncpu`
