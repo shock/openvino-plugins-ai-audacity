@@ -9,8 +9,8 @@ on:
 
 env:
   AUDACITY_REPO: audacity/audacity
-  AUDACITY_BRANCH: master
-  AUDACITY_VERSION: audacity-master
+  AUDACITY_BRANCH: Audacity-3.4.2
+  AUDACITY_VERSION: audacity-3.4.2
 
   WHISPER_REPO: ggerganov/whisper.cpp
   WHISPER_BRANCH: v1.5.4
