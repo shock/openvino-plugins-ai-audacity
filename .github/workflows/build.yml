@@ -33,7 +33,4 @@ jobs:
 
       - name: Build audacity
         run: |
-          mkdir build
-          cd build
-          cmake -G "Unix Makefiles" ${{ env.SOURCE_PATH }}/${{ env.AUDACITY_VERSION }} -DCMAKE_BUILD_TYPE=Release
-          make -j`sysctl -n hw.ncpu`
+          .github/scripts/build.sh
