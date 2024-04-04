@@ -12,6 +12,7 @@ env:
   AUDACITY_BRANCH: master
   AUDACITY_VERSION: audacity-master
 
+  PACKAGE_PATH: ${{ github.workspace }}/package
   SOURCE_PATH: ${{ github.workspace }}/code
 
 jobs:
