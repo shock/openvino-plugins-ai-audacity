@@ -16,6 +16,9 @@ env:
   WHISPER_BRANCH: v1.5.4
   WHISPER_VERSION: whisper-1.5.4
 
+  PACKAGE_NAME: Audacity-OpenVINO-Module-macos-arm64-3.4.2-R1
+  
+  ARTIFACT_PATH: ${{ github.workspace }}/artifact
   PACKAGE_PATH: ${{ github.workspace }}/package
   SOURCE_PATH: ${{ github.workspace }}/code
 
@@ -46,3 +49,10 @@ jobs:
       - name: Build audacity
         run: |
           .github/scripts/build.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PACKAGE_NAME }}.zip
+          path: ${{ env.ARTIFACT_PATH }}/${{ env.PACKAGE_NAME }}
+          retention-days: 90

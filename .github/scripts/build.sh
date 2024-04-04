@@ -37,3 +37,15 @@ cmake -G "Unix Makefiles" \
 make -j`sysctl -n hw.ncpu`
 
 find Release
+
+mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
+mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+
+cp $BUILD_PATH/audacity/Release/Audacity.app/Contents/modules/mod-openvino.so \
+    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.so \
+    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
+    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/libtbb.12.dylib \
+    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
