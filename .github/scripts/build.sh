@@ -2,6 +2,8 @@
 
 source `dirname ${BASH_SOURCE[0]}`/config.sh
 
+brew install opencv
+
 cp -r $WORKSPACE_PATH/mod-openvino $SOURCE_PATH/$AUDACITY_VERSION/modules
 sed -i '' 's/set( MODULES/set( MODULES\n   mod-openvino/' $SOURCE_PATH/$AUDACITY_VERSION/modules/CMakeLists.txt
 
