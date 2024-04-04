@@ -30,7 +30,10 @@ export LD_LIBRARY_PATH=${WHISPERCPP_ROOTDIR}/lib:$LD_LIBRARY_PATH
 mkdir -p $BUILD_PATH/audacity
 cd $BUILD_PATH/audacity
 
-cmake -G "Unix Makefiles" $SOURCE_PATH/$AUDACITY_VERSION -DCMAKE_BUILD_TYPE=Release
+
+cmake -G "Unix Makefiles" \
+    -D CMAKE_CXX_FLAGS="-I/opt/homebrew/opt/opencl-clhpp-headers/include" \
+    $SOURCE_PATH/$AUDACITY_VERSION -DCMAKE_BUILD_TYPE=Release
 make -j`sysctl -n hw.ncpu`
 
 find Release
