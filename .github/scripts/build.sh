@@ -47,5 +47,5 @@ cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/
     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
 cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
-cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/libtbb.12.dylib \
+cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
