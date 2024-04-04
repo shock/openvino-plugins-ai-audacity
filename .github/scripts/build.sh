@@ -6,3 +6,5 @@ mkdir -p $BUILD_PATH
 cd $BUILD_PATH
 cmake -G "Unix Makefiles" $SOURCE_PATH/$AUDACITY_VERSION -DCMAKE_BUILD_TYPE=Release
 make -j`sysctl -n hw.ncpu`
+
+find Release
