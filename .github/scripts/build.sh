@@ -12,6 +12,11 @@ wget https://storage.openvinotoolkit.org/repositories/openvino/packages/2024.0/m
 tar xvf m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64.tgz
 source m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/setupvars.sh
 
+wget https://download.pytorch.org/libtorch/cpu/libtorch-macos-arm64-2.2.2.zip
+unzip libtorch-macos-arm64-2.2.2.zip
+ls
+LIBTORCH_ROOTDIR=$PACKAGE_PATH/libtorch-macos-arm64-2.2.2
+
 mkdir -p $BUILD_PATH
 cd $BUILD_PATH
 
