@@ -1,1 +1,7 @@
+artifact/
+build.old/
+build/
+code/
+package.old/
+package/
 **/*.DS_Store
