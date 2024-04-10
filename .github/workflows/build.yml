@@ -19,6 +19,7 @@ env:
   PACKAGE_NAME: Audacity-OpenVINO-macos-arm64-3.4.2-R1
   
   ARTIFACT_PATH: ${{ github.workspace }}/artifact
+  BUILD_PATH: ${{ github.workspace }}/build
   PACKAGE_PATH: ${{ github.workspace }}/package
   SOURCE_PATH: ${{ github.workspace }}/code
 
