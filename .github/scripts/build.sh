@@ -66,8 +66,9 @@ cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/
     $AUDACITY_APP_PATH/Contents/Frameworks
 cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
     $AUDACITY_APP_PATH/Contents/Frameworks
+mkdir -p $AUDACITY_APP_PATH/../3rdparty/tbb
 cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
-    $AUDACITY_APP_PATH/Contents/Frameworks
+    $AUDACITY_APP_PATH/../3rdparty/tbb
 
 mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
 mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
