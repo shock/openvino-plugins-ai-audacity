@@ -27,6 +27,13 @@ if [ ! -d "m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64" ]; th
     wget https://storage.openvinotoolkit.org/repositories/openvino/packages/2024.0/macos/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64.tgz
     tar xvf m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64.tgz
 fi
+
+if [ ! -d "openvino_tokenizers_macos_11_0_2024.0.0.0_arm64" ]; then
+    wget https://storage.openvinotoolkit.org/repositories/openvino_tokenizers/packages/2024.0.0.0/openvino_tokenizers_macos_11_0_2024.0.0.0_arm64.tgz
+    tar xvf openvino_tokenizers_macos_11_0_2024.0.0.0_arm64.tgz
+    cp openvino_tokenizers_macos_11_0_2024.0.0.0_arm64/* m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release
+fi
+
 source m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/setupvars.sh
 
 if [ ! -d "$PACKAGE_PATH/libtorch" ]; then
@@ -66,18 +73,18 @@ cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/
     $AUDACITY_APP_PATH/Contents/Frameworks
 cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
     $AUDACITY_APP_PATH/Contents/Frameworks
-mkdir -p $AUDACITY_APP_PATH/../3rdparty/tbb
+# mkdir -p $AUDACITY_APP_PATH/../3rdparty/tbb
 cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
-    $AUDACITY_APP_PATH/../3rdparty/tbb
+    $AUDACITY_APP_PATH/Contents/Frameworks
 
-mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
-mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+# mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
+# mkdir -p $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
 
-cp $AUDACITY_APP_PATH/Contents/modules/mod-openvino.so \
-    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
-cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.so \
-    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
-cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
-    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
-cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
-    $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+# cp $AUDACITY_APP_PATH/Contents/modules/mod-openvino.so \
+#     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/modules
+# cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.so \
+#     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+# cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/lib/arm64/Release/*.dylib \
+#     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks
+# cp $PACKAGE_PATH/m_openvino_toolkit_macos_11_0_2024.0.0.14509.34caeefd078_arm64/runtime/3rdparty/tbb/lib/libtbb.12.dylib \
+#     $ARTIFACT_PATH/$PACKAGE_NAME/Contents/Frameworks

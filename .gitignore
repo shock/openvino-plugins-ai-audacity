@@ -5,3 +5,6 @@ code/
 package.old/
 package/
 **/*.DS_Store
+hgdl
+.vscode
+
